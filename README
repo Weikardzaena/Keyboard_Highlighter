@@ -1,0 +1,10 @@
+This is a very simple application that simply shows a window that highlights
+keypresses as you type them even if the window does not have focus.  This is a
+first step towards an input heatmapper similar to Razer's Heatmapping software:
+http://www.razerzone.com/synapse/stats
+
+Note there is a lot of room for improvement with this, and I don't intend this
+to be the final rendition of this software.
+
+See INSTALL for compiling instructions, but note you need at least Qt 5.3.2
+installed on your system.
