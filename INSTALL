@@ -3,44 +3,59 @@ Compiling instructions:
 This is assuming you're going to be building this in debug mode.
 
 NOTES:
--	You must be running Windows.  Sorry, this won't work on any other system yet.
--	It is highly recommended that you install the latest Windows Development Kit
-	(yes install the one for Windows 8.1 even if you don't have it), and the 
-	latest version of Visual Studio (with the latest Visual C++ Runtime
-	Libraries).  This allows you to compile the application using visual C++
-	compilers which make compatibility with Windows that much easier to
-	implement.  Otherwise you'll have to use MinGW's GCC for a compiler which
-	can cause issues.
-- 	After you've installed the above kits (if any) you must install at least
-	Qt 5.3.2.  You can download the SDK from here http://qt-project.org/
-	It is recommended that you also install the Qt Creator IDE.
+
+- You must be running Windows.  Sorry, this won't work on any other system yet.
+
+- You must have a C++ compiler installed (duh).  Visual Studio is highly recommened,
+  but if you want to use MinGW's GCC it should work.  Note that you'll have to do
+  manual linking against the native Windows DLL's if you choose this route. I'm
+  pretty sure that any VS version as far back as 2008 will work, but I haven't
+  tried it.
+
+- It is highly recommended that you install the latest Windows Development Kit
+  (yes, install the one for Windows 8.1 even if you don't have 8.1), and the 
+  latest Microsoft Visual C++ runtime libraries.  This will ensure the executable
+  will work regardless of how your system is configured, and it makes it easier
+  to deploy anyway.
+
+- After you've installed the above kits you must install at least Qt 5.3.2.  You
+  can download the SDK from here http://qt-project.org/
+  It is recommended that you also install the Qt Creator IDE because it makes
+  debugging that much easier.
 
 BUILDING:
 
-Clone the repo, and once everything has downloaded YOU MUST DO THE FOLLOWING:
-Open up Keyboard_Highlighter.pro (with any text editor) and change the line
-"config	+=	release" to "config	+=	debug"
-If you don't do this, qmake will become angry at you when you try to build the
-application from a non-static Qt installation.  And yes, the Qt version you
-installed is NOT a static build; the only way to get a static Qt build is if you
-build Qt from source and manually configure it to be static (along with other 
-options).
+- Clone the repo, and once everything has downloaded YOU MUST DO THE FOLLOWING:
 
-After you have Qt installed, you can open up the Keyboard_Highlighter.pro file
-with Qt Creator and it will parse all included files as well.  Then you can
-simply build the application from within Qt Creator.  If you didn't install the
-IDE, you can alternatively just use Qt's qmake function to build the application
-using the following commands:
+  Open up Keyboard_Highlighter.pro (with any text editor) and change the line:
 
-cd \path\to\repo\clone
-\path\to\qmake\qmake.exe -o Makefile Keyboard_Highlighter.pro
-\path\to\jom\jom.exe
+  "config        +=        release"
+  to
+  "config        +=        debug"
 
-Alternatively you can just use nmake (but jom is recommended because it's
-multithreaded):
+  If you don't do this, qmake will become angry at you when you try to build the
+  application from a non-static Qt installation.
 
-cd \path\to\repo\clone
-\path\to\qmake\qmake.exe -o Makefile Keyboard_Highlighter.pro
-\path\to\nmake\nmake.exe
+  NOTE that If you installed Qt from an online installer, then it is NOT a
+  static build; the only way to get a static Qt build is if you build Qt from
+  source and manually configure it to be static (along with other options).
+
+- After you have Qt installed, and if you installed the Qt IDE, open up the
+  Keyboard_Highlighter.pro file with Qt Creator and it will parse all included
+  files as well.  Then you can simply build the application from within Qt Creator.
+
+   If you didn't install the IDE, you can alternatively just use Qt's qmake
+  function to build the application using the following commands:
+
+  cd /path/to/repo/clone
+  /path/to/qmake/qmake.exe -o Makefile Keyboard_Highlighter.pro
+  /path/to/jom/jom.exe
+
+  Alternatively you can just use nmake (but jom is recommended because it's
+  multithreaded):
+
+  cd /path/to/repo/clone
+  /path/to/qmake/qmake.exe -o Makefile Keyboard_Highlighter.pro
+  /path/to/nmake/nmake.exe
 
 And that's it!  You should have a working executable for your machine.
