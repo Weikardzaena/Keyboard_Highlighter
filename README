@@ -3,6 +3,9 @@ keypresses as you type them even if the window does not have focus.  This is a
 first step towards an input heatmapper similar to Razer's Heatmapping software:
 http://www.razerzone.com/synapse/stats
 
+It uses the Qt SDK as a multiplatform API with the hope that in the future this
+will be able to work cross-platform.
+
 Note there is a lot of room for improvement with this, and I don't intend this
 to be the final rendition of this software.
 
